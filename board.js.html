@@ -48,7 +48,7 @@ export class Board {
      * @param {Cell[]} group specified group of cells
      * @returns {int[]} number of cells possible for each value in a group
      */
-    getVals(group) {
+    getNumVals(group) {
         var vals = [0, 0, 0, 0, 0, 0, 0, 0, 0];
         // iterate through cells in a group
         for (var c = 0; c &lt; 9; c++) {
@@ -142,7 +142,7 @@ export class Board {
      * @param {Cell[]} group specified group
      */
     hiddenSingle(group) {
-        var vals = this.getVals(group);
+        var vals = this.getNumVals(group);
         // iterate through all values in group
         for (var val = 0; val &lt; 9; val++){
             // if selected value has only one cell possible
@@ -177,7 +177,7 @@ export class Board {
      * @param {Cell[]} group specified group
      */
     hiddenDouble(group) {
-        var vals = this.getVals(group);
+        var vals = this.getNumVals(group);
         // iterates through every pair of values
         for(var val1 = 0; val1 &lt; 9; val1++){
             for (var val2 = 0; val2 &lt; val1; val2++) {
@@ -212,7 +212,7 @@ export class Board {
      * @param {Cell[]} group initial group
      */
     pointingPair(group) {
-        var vals = this.getVals(group);
+        var vals = this.getNumVals(group);
         // iterate through all values in group
         for (var val = 0; val &lt; 9; val++){
             // if selected value has exactly two cells possible
@@ -257,7 +257,7 @@ export class Board {
      * @param {Cell[]} group initial group
      */
     pointingTriple(group) {
-        var vals = this.getVals(group);
+        var vals = this.getNumVals(group);
         // iterate through all values in group
         for (var val = 0; val &lt; 9; val++){
             // if selected value has exactly two cells possible
